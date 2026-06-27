@@ -9,7 +9,7 @@ It ships as two things:
 
 | Piece | Path | What it is |
 |-------|------|-----------|
-| **Dashboard** | `streamlit_app/app.py` | Interactive Streamlit app: leaderboard, category roll-ups, per-theme drill-down, watchlists. |
+| **Dashboard** | `streamlit_app/app.py` | Interactive Streamlit app: leaderboard, category roll-ups, multi-ETF compare/overlay, watchlists — over any date window in the last ~3 years. |
 | **Landing page** | `index.html` + `assets/` | Static site (deployable to GitHub Pages) describing the project and the theme universe. |
 
 > ⚠️ **Educational research tool — not investment advice.** ETFs carry risk,
@@ -48,7 +48,17 @@ Momentum = 0.15·(1W) + 0.35·(1M) + 0.30·(3M) + 0.15·(6M) + 0.05·(1Y)
 
 The weighting favours the medium-term trend (1–3 months) while still reacting to
 fresh moves and discounting stale ones. Missing windows are renormalised away, so
-a young ETF without a full year of history still gets a fair score. See
+a young ETF without a full year of history still gets a fair score.
+
+### Pick any date window
+
+The sidebar has a **date-range slider** covering the last ~3 years. The trailing
+windows above are computed *as of* the end date you choose, and a **Range %**
+column shows each theme's return over your exact `start → end` selection. On the
+**🔎 Compare themes** tab you can **overlay multiple ETFs on one chart** (each
+rebased to 100 at the start date) to compare relative performance directly.
+
+See
 [`STOCK_THEME_TRENDS_TRACKER.md`](STOCK_THEME_TRENDS_TRACKER.md) for the full
 methodology and [`WATCHLISTS_AND_FUNDAMENTALS.md`](WATCHLISTS_AND_FUNDAMENTALS.md)
 for the curated watchlists and fundamentals snapshot.

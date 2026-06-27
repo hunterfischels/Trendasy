@@ -55,6 +55,23 @@ Design choices:
 The score is a **relative** signal for ranking, not an annualised return or an
 expected forward return.
 
+## Date windows & the range return
+
+The dashboard loads ~3 trading years of history and exposes a **date-range
+slider**. Two distinct measures are derived from your selection:
+
+- **Trailing windows / momentum** are computed *as of the end date* you pick —
+  i.e. the price series is truncated at `end_date` and the 1W…1Y returns are
+  measured back from there. Moving the end date back in time lets you ask "what
+  was trending as of *that* day?"
+- **Range %** is the simple return from `start_date` to `end_date` (nearest
+  available trading days). This is the measure tied directly to the *specific*
+  dates you choose, independent of the fixed windows.
+
+On the **Compare themes** tab, selected ETFs are each **rebased to 100 at
+`start_date`** and overlaid on one chart, so the vertical spread between lines is
+their relative performance over your window.
+
 ## Category roll-ups
 
 Each ETF maps to one of nine macro categories (Technology, Healthcare & Biotech,

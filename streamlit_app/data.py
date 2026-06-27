@@ -26,6 +26,15 @@ WINDOWS: dict[str, int] = {
     "1Y": 252,
 }
 
+# How much history we load by default: ~3 trading years. This is the pool the
+# UI's date-range slider draws from, so any specific start date within the last
+# three years can be selected.
+MAX_LOOKBACK_DAYS = 756
+
+# The most recent date the (synthetic) series ends on. Kept here so the demo
+# fallback and any date math agree on "today".
+TODAY = _dt.date(2026, 6, 27)
+
 
 def data_source() -> str:
     """Return ``"live"`` if yfinance is importable, else ``"demo"``."""
@@ -76,8 +85,7 @@ def _synthetic_series(ticker: str, days: int) -> pd.Series:
         price *= math.exp(drift + vol * shock)
         prices.append(round(price, 2))
 
-    end = _dt.date(2026, 6, 27)
-    idx = pd.bdate_range(end=end, periods=days)
+    idx = pd.bdate_range(end=TODAY, periods=days)
     return pd.Series(prices, index=idx, name=ticker)
 
 
@@ -101,11 +109,12 @@ def _synthetic_fundamentals(ticker: str) -> dict:
 # --------------------------------------------------------------------------- #
 # Public API
 # --------------------------------------------------------------------------- #
-def get_price_history(tickers: list[str], days: int = 252) -> pd.DataFrame:
+def get_price_history(tickers: list[str], days: int = MAX_LOOKBACK_DAYS) -> pd.DataFrame:
     """Daily close prices for ``tickers`` as a wide DataFrame (date index).
 
-    Falls back to synthetic data if yfinance is unavailable or the download
-    comes back empty.
+    Loads ~3 trading years by default so the UI can slice to any specific date
+    within that span. Falls back to synthetic data if yfinance is unavailable or
+    the download comes back empty.
     """
     if not tickers:
         return pd.DataFrame()
@@ -118,7 +127,12 @@ def get_price_history(tickers: list[str], days: int = 252) -> pd.DataFrame:
         try:
             import yfinance as yf
 
-            period = "2y" if fetch_days > 252 else "1y"
+            if fetch_days > 504:
+                period = "5y"
+            elif fetch_days > 252:
+                period = "2y"
+            else:
+                period = "1y"
             raw = yf.download(
                 tickers,
                 period=period,
@@ -191,6 +205,41 @@ def compute_returns(prices: pd.DataFrame) -> pd.DataFrame:
                 row[label] = float("nan")
         out[ticker] = row
     return pd.DataFrame(out).T
+
+
+def range_return(prices: pd.DataFrame, start, end) -> pd.Series:
+    """Percent return of each ticker between ``start`` and ``end`` (inclusive).
+
+    ``start``/``end`` are dates; the nearest available trading day at or after
+    ``start`` and at or before ``end`` is used. Returns a Series indexed by
+    ticker (values in percent), NaN where the window has no data.
+    """
+    window = prices.loc[str(start):str(end)]
+    out: dict[str, float] = {}
+    for ticker in prices.columns:
+        series = window[ticker].dropna()
+        if len(series) >= 2 and series.iloc[0]:
+            out[ticker] = round((series.iloc[-1] / series.iloc[0] - 1) * 100, 2)
+        else:
+            out[ticker] = float("nan")
+    return pd.Series(out, name="Range %")
+
+
+def rebase(prices: pd.DataFrame, base: float = 100.0) -> pd.DataFrame:
+    """Rebase every column to ``base`` at its first valid observation.
+
+    Lets multiple tickers with different absolute prices be compared on one
+    chart — each starts at ``base`` and the lines show relative performance.
+    """
+    if prices.empty:
+        return prices
+    out = {}
+    for ticker in prices.columns:
+        series = prices[ticker].dropna()
+        if series.empty or not series.iloc[0]:
+            continue
+        out[ticker] = series / series.iloc[0] * base
+    return pd.DataFrame(out)
 
 
 def theme_index(prices: pd.DataFrame, tickers: list[str]) -> pd.Series:
