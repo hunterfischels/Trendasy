@@ -1,0 +1,5 @@
+# Convenience root pin so `pip install -r requirements.txt` works from the repo
+# root (e.g. on Streamlit Community Cloud). Mirrors streamlit_app/requirements.txt.
+streamlit>=1.40
+pandas>=2.0
+yfinance>=0.2.40

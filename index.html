@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trendasy · Thematic ETF Trend Tracker</title>
+  <meta name="description" content="Trendasy ranks 87 thematic and sector ETFs by price momentum and rolls them up into macro categories — a fast read on which market themes are trending." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="site-head">
+    <a class="brand" href="#top" id="top">
+      <img src="assets/logo.svg" width="34" height="34" alt="Trendasy logo" />
+      <span>Trendasy</span>
+    </a>
+    <nav>
+      <a href="#themes">Themes</a>
+      <a href="#how">How it works</a>
+      <a href="https://github.com/hunterfischels/Trendasy">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Thematic ETF trend tracker</p>
+      <h1>See which market <span class="grad">themes are trending</span>.</h1>
+      <p class="lede">
+        Trendasy ranks <strong>87 thematic &amp; sector ETFs</strong> by a blended
+        price-momentum score, then rolls them up into nine macro categories so you
+        can spot rotation at a glance — from semiconductors and uranium to GLP-1
+        and defense tech.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="https://share.streamlit.io/" >Launch the dashboard</a>
+        <a class="btn ghost" href="#themes">Browse the universe</a>
+      </div>
+      <p class="fineprint">Educational research tool · not investment advice.</p>
+    </section>
+
+    <section class="stats">
+      <div><strong>87</strong><span>thematic ETFs</span></div>
+      <div><strong>9</strong><span>macro categories</span></div>
+      <div><strong>5</strong><span>momentum windows</span></div>
+      <div><strong>0</strong><span>API keys required</span></div>
+    </section>
+
+    <section id="themes" class="themes">
+      <h2>The theme universe</h2>
+      <p class="section-sub">Every ETF is a ready-made basket expressing one idea. Hover a ticker for the fund name.</p>
+      <div class="cat-grid">
+      <article class="cat-card">
+        <header><h3>Technology</h3><span class="count">8</span></header>
+        <div class="chips"><span class="chip" title="iShares Semiconductor">SOXX</span><span class="chip" title="iShares Expanded Tech-Software">IGV</span><span class="chip" title="Global X Artificial Intelligence &amp; Tech">AIQ</span><span class="chip" title="iShares Tech Multimedia Networking">IGN</span><span class="chip" title="Defiance Quantum Computing">QTUM</span><span class="chip" title="First Trust NextG / 5G Connectivity">NXTG</span><span class="chip" title="Global X Robotics &amp; Artificial Intelligence">BOTZ</span><span class="chip" title="The 3D Printing ETF">PRNT</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Cyber, Cloud &amp; Fintech</h3><span class="count">7</span></header>
+        <div class="chips"><span class="chip" title="iShares Cybersecurity &amp; Tech">IHAK</span><span class="chip" title="Global X Cloud Computing">CLOU</span><span class="chip" title="Amplify Digital Payments">IPAY</span><span class="chip" title="Global X FinTech">FINX</span><span class="chip" title="Global X E-commerce">EBIZ</span><span class="chip" title="Amplify Transformational Data Sharing (Blockchain)">BLOK</span><span class="chip" title="Valkyrie Bitcoin Miners">WGMI</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Comms, Media &amp; Internet</h3><span class="count">7</span></header>
+        <div class="chips"><span class="chip" title="Communication Services Select Sector">XLC</span><span class="chip" title="Global X Social Media">SOCL</span><span class="chip" title="VanEck Video Gaming &amp; eSports">ESPO</span><span class="chip" title="iShares Global Comm Services">IXP</span><span class="chip" title="AdvisorShares / ETFMG Travel Tech">AWAY</span><span class="chip" title="Procure Space">UFO</span><span class="chip" title="Roundhill Ball Metaverse">METV</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Healthcare &amp; Biotech</h3><span class="count">11</span></header>
+        <div class="chips"><span class="chip" title="SPDR S&amp;P Pharmaceuticals">XPH</span><span class="chip" title="iShares Biotechnology">IBB</span><span class="chip" title="SPDR S&amp;P Biotech">XBI</span><span class="chip" title="iShares Genomics Immunology &amp; Healthcare">IDNA</span><span class="chip" title="Roundhill GLP-1 &amp; Weight Loss">OZEM</span><span class="chip" title="iShares U.S. Medical Devices">IHI</span><span class="chip" title="SPDR S&amp;P Health Care Equipment">XHE</span><span class="chip" title="Global X Telemedicine &amp; Digital Health">EDOC</span><span class="chip" title="iShares U.S. Healthcare Providers">IHF</span><span class="chip" title="Global X Aging Population">AGNG</span><span class="chip" title="AdvisorShares Psychedelics">PSIL</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Financials</h3><span class="count">6</span></header>
+        <div class="chips"><span class="chip" title="SPDR S&amp;P Bank">KBE</span><span class="chip" title="SPDR S&amp;P Regional Banking">KRE</span><span class="chip" title="iShares U.S. Broker-Dealers">IAI</span><span class="chip" title="Invesco Global Listed Private Equity">PSP</span><span class="chip" title="SPDR S&amp;P Insurance">KIE</span><span class="chip" title="Roundhill Sports Betting &amp; iGaming">BETZ</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Energy &amp; Materials</h3><span class="count">17</span></header>
+        <div class="chips"><span class="chip" title="iShares Global Energy">IXC</span><span class="chip" title="SPDR S&amp;P Oil &amp; Gas Exploration">XOP</span><span class="chip" title="VanEck Oil Services">OIH</span><span class="chip" title="Alerian MLP / Midstream">AMLP</span><span class="chip" title="VanEck Oil Refiners">CRAK</span><span class="chip" title="Sprott Uranium Miners">URNM</span><span class="chip" title="VanEck Uranium &amp; Nuclear">NLR</span><span class="chip" title="VanEck Environmental Services">EVX</span><span class="chip" title="VanEck Agribusiness">MOO</span><span class="chip" title="VanEck Gold Miners">GDX</span><span class="chip" title="VanEck Junior Gold Miners">GDXJ</span><span class="chip" title="Global X Silver Miners">SIL</span><span class="chip" title="Global X Copper Miners">COPX</span><span class="chip" title="VanEck Rare Earth / Strategic Metals">REMX</span><span class="chip" title="iShares MSCI Global Metals &amp; Mining">PICK</span><span class="chip" title="VanEck Steel">SLX</span><span class="chip" title="iShares Global Timber &amp; Forestry">WOOD</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Clean Energy &amp; Infrastructure</h3><span class="count">12</span></header>
+        <div class="chips"><span class="chip" title="Invesco Solar">TAN</span><span class="chip" title="First Trust Global Wind Energy">FAN</span><span class="chip" title="Defiance Next Gen Hydrogen">HDRO</span><span class="chip" title="iShares Global Clean Energy">ICLN</span><span class="chip" title="LeaderShares / Global Water">WATS</span><span class="chip" title="Global X Lithium &amp; Battery Tech">LIT</span><span class="chip" title="KraneShares Electric Vehicles &amp; Future Mobility">KARS</span><span class="chip" title="Drone &amp; Autonomous Tech">DRNZ</span><span class="chip" title="First Trust NASDAQ Clean Edge Smart Grid">GRID</span><span class="chip" title="Invesco S&amp;P Global Water">CGW</span><span class="chip" title="Global X U.S. Infrastructure Development">PAVE</span><span class="chip" title="Global X Renewable Energy Producers">RNRG</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Industrials &amp; Defense</h3><span class="count">7</span></header>
+        <div class="chips"><span class="chip" title="iShares U.S. Aerospace &amp; Defense">ITA</span><span class="chip" title="SPDR S&amp;P Aerospace &amp; Defense">XAR</span><span class="chip" title="Global X Defense Tech">SHLD</span><span class="chip" title="U.S. Global Jets / Airlines">JETS</span><span class="chip" title="SPDR S&amp;P Homebuilders">XHB</span><span class="chip" title="First Trust S-Network Future Vehicles &amp; Tech">CARZ</span><span class="chip" title="Defiance Hotel, Airline &amp; Cruise">CRUZ</span></div>
+      </article>
+      <article class="cat-card">
+        <header><h3>Consumer &amp; Real Assets</h3><span class="count">12</span></header>
+        <div class="chips"><span class="chip" title="iShares Global Infrastructure">IGF</span><span class="chip" title="SPDR S&amp;P Retail">XRT</span><span class="chip" title="AdvisorShares Restaurant">EATZ</span><span class="chip" title="ETFMG Alternative Harvest (Cannabis)">MJ</span><span class="chip" title="Invesco Food &amp; Beverage">PBJ</span><span class="chip" title="Real Estate Select Sector">XLRE</span><span class="chip" title="iShares Global REIT">REET</span><span class="chip" title="Global X Data Center REITs &amp; Digital Infrastructure">VPN</span><span class="chip" title="Pacer Data &amp; Infrastructure Real Estate">SRVR</span><span class="chip" title="Pacer Industrial Real Estate">INDS</span><span class="chip" title="iShares Residential &amp; Multisector Real Estate">REZ</span><span class="chip" title="iShares Global Utilities">JXI</span></div>
+      </article>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="num">1</span>
+          <h3>Pull prices</h3>
+          <p>Daily closes for every ETF come from Yahoo Finance. No data entitlement? A deterministic offline fallback keeps the app running anywhere.</p>
+        </div>
+        <div class="step">
+          <span class="num">2</span>
+          <h3>Score momentum</h3>
+          <p>Each theme gets a blended score: 1-week, 1-, 3-, 6-month and 1-year trailing returns, weighted toward the medium-term trend.</p>
+        </div>
+        <div class="step">
+          <span class="num">3</span>
+          <h3>Rank &amp; roll up</h3>
+          <p>Leaders and laggards surface on a heat-mapped leaderboard, and category averages show where capital is rotating.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="run">
+      <h2>Run it yourself</h2>
+      <pre><code>git clone https://github.com/hunterfischels/Trendasy.git
+cd Trendasy
+pip install -r requirements.txt
+streamlit run streamlit_app/app.py</code></pre>
+      <p class="section-sub">Or deploy to Streamlit Community Cloud with main file <code>streamlit_app/app.py</code>.</p>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <p><strong>Trendasy</strong> — built with Streamlit. Data via Yahoo Finance with a deterministic offline fallback.</p>
+    <p class="disclaimer">For research and education only. Nothing here is investment advice. ETFs involve risk, including possible loss of principal.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Streamlit theme to match the Trendasy landing page.
+[theme]
+base = "dark"
+primaryColor = "#4f8bf9"
+backgroundColor = "#0b0f17"
+secondaryBackgroundColor = "#161d2c"
+textColor = "#e7ecf5"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false

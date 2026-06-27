@@ -1,0 +1,5 @@
+streamlit>=1.40
+pandas>=2.0
+# Optional: live market data. The app falls back to deterministic synthetic
+# data when yfinance is missing or the network is unavailable.
+yfinance>=0.2.40
